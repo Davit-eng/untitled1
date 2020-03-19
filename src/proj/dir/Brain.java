@@ -34,12 +34,15 @@ public class Brain {
                     System.out.println("Try again.");
                     continue;
                 } else {
-                    board.getBoard()[x - 1][y - 1] = board.getCurrentPlayerMark();
-                    board.changeCurrentPlayer();
+                    putMark(board,x,y);
                 }
 
 
         }
         System.out.println("Sorry,you cant play any more because the board is full");
+    }
+    private void putMark(Board board,int x,int y){
+        board.getBoard()[x-1][y-1] = board.getCurrentPlayerMark();
+        board.changeCurrentPlayer();
     }
 }
