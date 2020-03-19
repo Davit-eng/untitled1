@@ -1,6 +1,5 @@
 package proj.dir;
 
-import javax.swing.plaf.IconUIResource;
 import java.util.Scanner;
 
 public class Brain {
@@ -12,7 +11,7 @@ public class Brain {
         board.initializingBoard();
         System.out.println("----Tic Tac Toe----");
         while (board.isBoardFull() == false) {
-            if(board.checkWin() == true){
+            if (board.checkWin() == true) {
                 board.printBoard();
                 System.out.println("\n");
                 board.changeCurrentPlayer();
@@ -25,15 +24,19 @@ public class Brain {
             System.out.println("Please enter the coordinate you have chosen ");
             x = scanner.nextByte();
             y = scanner.nextByte();
-            if(board.getBoard()[x][y] == '0' || board.getBoard()[x][y] == 'X'){
-                System.out.println("Sorry,this place has already taken");
-                System.out.println("Try again.");
+            if (x - 1 >= board.getWidth() || y-1>=board.getHeight()){
+                System.out.println("Sorry, you cant put it here ");
+                System.out.println("Try again");
                 continue;
-            }else{
-                board.getBoard()[x][y] = board.getCurrentPlayerMark();
-                board.changeCurrentPlayer();
             }
-
+                if (board.getBoard()[x - 1][y - 1] == '0' || board.getBoard()[x - 1][y - 1] == 'X') {
+                    System.out.println("Sorry,this place has already taken");
+                    System.out.println("Try again.");
+                    continue;
+                } else {
+                    board.getBoard()[x - 1][y - 1] = board.getCurrentPlayerMark();
+                    board.changeCurrentPlayer();
+                }
 
 
         }

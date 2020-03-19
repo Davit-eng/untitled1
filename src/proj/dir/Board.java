@@ -18,6 +18,14 @@ public class Board {
         return board;
     }
 
+    public int getWidth() {
+        return width;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
     //region initializing Board
     public void initializingBoard() {
         for (int i = 0; i < height; i++) {
